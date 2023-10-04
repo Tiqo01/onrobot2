@@ -32,15 +32,15 @@ colcon build
 ##### Interactive mode
 
 ```bash
-ros2 launch onrobot_rg_control bringup.launch.py 
-ros2 run onrobot_rg_control OnRobotRGSimpleController.py
+ros2 launch onrobot2_rg_control bringup.launch.py 
+ros2 run onrobot2_rg_control OnRobotRGSimpleController.py
 ```
 
 ##### ROS service call
 
 ```bash
-ros2 launch onrobot_rg_control bringup.launch.py 
-ros2 run onrobot_rg_control OnRobotRGSimpleControllerServer.py
+ros2 launch onrobot2_rg_control bringup.launch.py 
+ros2 run onrobot2_rg_control OnRobotRGSimpleControllerServer.py
 ros2 service call /onrobot_rg/set_command "{command: 'c'}"
 ros2 service call /onrobot_rg/set_command "{command: 'o'}"
 ros2 service call /onrobot_rg/set_command "{command: 'c'}"
