@@ -15,8 +15,7 @@ This repository was inspired by [Osaka-University-Harada-Laboratory/onrobot](htt
 ## Dependency
 
 - pymodbus==2.5.3  
-- [roboticsgroup/roboticsgroup_upatras_gazebo_plugins](https://github.com/roboticsgroup/roboticsgroup_upatras_gazebo_plugins.git)  
-
+ 
 ## Installation
 
 ```bash
