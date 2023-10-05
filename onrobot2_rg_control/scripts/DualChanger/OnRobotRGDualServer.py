@@ -34,7 +34,7 @@ class OnRobotRGDualNode(Node):
     def handleCommandA(self, req, res):
         """ Handles sending commands for the gripper A. """
 
-        rclpy.get_logger().info(str(req.command))
+        rclpy.logging.get_logger('node_logger').info(str(req.command))
         self.command = self.genCommand(
             str(req.command), self.commandA, gtype=gtype_A)
         self.pub_primary_gripper.publish(self.command)
@@ -46,7 +46,7 @@ class OnRobotRGDualNode(Node):
     def handleCommandB(self, req, res):
         """ Handles sending commands for the gripper B. """
 
-        rclpy.get_logger().info(str(req.command))
+        rclpy.logging.get_logger('node_logger').info(str(req.command))
         self.command = self.genCommand(
             str(req.command), self.commandB, gtype=gtype_B)
         self.pub_secondary_gripper.publish(self.command)

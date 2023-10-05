@@ -105,7 +105,7 @@ class OnRobotDualRGStatusListener(Node):
                       str(self.statusB.gwdf) + ' mm\n'
             output += 'Offset_B = ' + \
                       str(self.statusA.gfof) + ' mm\n'
-            rclpy.get_logger().info(output)
+            rclpy.logging.get_logger('node_logger').info(output)
 
 
 if __name__ == '__main__':

@@ -43,9 +43,8 @@ class onrobotbaseRG:
             max_force = 1200
             max_width = 1600
         else:
-            rclpy.signal_shutdown(
-                rclpy.get_name() +
-                ": Select the gripper type from rg2 or rg6.")
+            rclpy.logging.get_logger('node_logger').info(": Select the gripper type from rg2 or rg6.")
+            rclpy.shutdown()
 
         command.rgfr = max(0, command.rgfr)
         command.rgfr = min(max_force, command.rgfr)
@@ -54,10 +53,9 @@ class onrobotbaseRG:
 
         # Verifying that the selected mode number is available
         if command.rctr not in [1, 8, 16]:
-            rclpy.signal_shutdown(
-                rclpy.get_name() +
-                ": Select the mode number from" +
+            rclpy.logging.get_logger('node_logger').info(": Select the mode number from" +
                 "1 (grip), 8 (stop), or 16 (grip_w_offset).")
+            rclpy.shutdown()
 
         # Returning the modified command
         return command

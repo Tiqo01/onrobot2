@@ -68,7 +68,7 @@ def askForCommand(command):
     currentCommand += ', rgwd = ' + str(command.rgwd)
     currentCommand += ', rctr = ' + str(command.rctr)
 
-    node.get_logger().info(currentCommand)
+    rclpy.logging.get_logger('node_logger').info(currentCommand)
 
     strAskForCommand = '-----\nAvailable commands\n\n'
     strAskForCommand += 'c: Close\n'

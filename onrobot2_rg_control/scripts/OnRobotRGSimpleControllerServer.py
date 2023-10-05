@@ -22,7 +22,7 @@ class OnRobotRGNode(Node):
     def handleSettingCommand(self, req, response):
         """ Handles sending commands via socket connection. """
 
-        rclpy.get_logger().info(str(req.command))
+        rclpy.logging.get_logger('node_logger').info(str(req.command))
         self.command = self.genCommand(str(req.command), self.command)
         self.pub.publish(self.command)
         time.sleep(1)

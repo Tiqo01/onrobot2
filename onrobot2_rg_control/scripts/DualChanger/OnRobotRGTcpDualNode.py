@@ -76,7 +76,7 @@ class OnRobotDualRGTcp(Node):
 
     def restartPowerCycle(self, request, response):
         """ Restarts the power cycle of the gripper. """
-        rclpy.get_logger().info("Restart the power cycle of all grippers connected.")
+        rclpy.logging.get_logger('node_logger').info("Restart the power cycle of all grippers connected.")
         self.gripper_primary.restartPowerCycle()
         time.sleep(1)
         response.success=None
@@ -101,7 +101,7 @@ class OnRobotDualRGTcp(Node):
             if not int(format(status_primary.gsta, '016b')[-1]):  # not busy
                 # Getting new messages
                 if not prev_msg_prime == self.gripper_primary.message:
-                    rclpy.get_logger().info(
+                    rclpy.logging.get_logger('node_logger').info(
                         rclpy.get_name()+": Sending Message A Side")
                     self.gripper_primary.sendCommand()
                 prev_msg_prime = self.gripper_primary.message
@@ -109,7 +109,7 @@ class OnRobotDualRGTcp(Node):
             if not int(format(status_secondary.gsta, '016b')[-1]):  # not busy
                 # Getting new messages
                 if not prev_msg_second == self.gripper_secondary.message:
-                    rclpy.get_logger().info(
+                    rclpy.logging.get_logger('node_logger').info(
                         rclpy.get_name()+": Sending Message B Side")
                     self.gripper_secondary.sendCommand()
                 prev_msg_second = self.gripper_secondary.message

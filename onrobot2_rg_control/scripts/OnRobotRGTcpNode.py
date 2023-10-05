@@ -58,7 +58,7 @@ class OnRobotRGTcp(Node):
 
     def restartPowerCycle(self, request, response):
         """ Restarts the power cycle of the gripper. """
-        rclpy.get_logger().info("Restarting the power cycle of all grippers connected.")
+        rclpy.logging.get_logger('node_logger').info("Restarting the power cycle of all grippers connected.")
         self.gripper.restartPowerCycle()
         time.sleep(1)
         response.success=None
@@ -78,7 +78,7 @@ class OnRobotRGTcp(Node):
             # Sending the most recent command
             if not int(format(status.gsta, '016b')[-1]):  # not busy
                 if not prev_msg == self.gripper.message:  # find new message
-                    rclpy.get_logger().info(rclpy.get_name()+": Sending message.")
+                    rclpy.logging.get_logger('node_logger').info(rclpy.get_name()+": Sending message.")
                     self.gripper.sendCommand()
             prev_msg = self.gripper.message
             time.sleep(0.05)
